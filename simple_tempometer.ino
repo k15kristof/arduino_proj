@@ -14,6 +14,9 @@ OneWire oneWire(ONE_WIRE_BUS);
 // Pass our oneWire reference to Dallas Temperature.
 DallasTemperature sensors(&oneWire);
 
+/*prototypes */
+void plot1(int data1, int data2, int data3, int data4);
+
 void setup(void)
 {
   // start serial port
@@ -23,11 +26,16 @@ void setup(void)
   // Start up the library
   sensors.begin();
 }
-
+int buffer_r[20];
 
 void loop(void)
 {
+  int data2;
+  int data3;
+  int data4;
+  //int temperature0;
   float temperature0;
+  int factor = 100;
   // call sensors.requestTemperatures() to issue a global temperature
   // request to all devices on the bus
   //Serial.print(" Requesting temperatures...");
@@ -44,5 +52,29 @@ void loop(void)
   //Serial.println(temperature);
     // You can have more than one IC on the same bus.
     // 0 refers to the first IC on the wire
+   data2 = 36;
+   data3 = 37;
+   data4 = 38;
+
+  //plot1(temperature0*factor,data2*factor,data3*factor,data4*factor);
+  delay(10);
 }
+
+void plot1(int data1, int data2, int data3, int data4)
+ {
+  int pktSize;
+
+  buffer_r[0] = 0xCDAB;             //SimPlot packet header. Indicates start of data packet
+  buffer_r[1] = 4*sizeof(int);      //Size of data in bytes. Does not include the header and size fields
+  buffer_r[2] = data1;
+  buffer_r[3] = data2;
+  buffer_r[4] = data3;
+  buffer_r[5] = data4;
+
+  pktSize = 2 + 2 + (4*sizeof(int)); //Header bytes + size field bytes + data
+
+  //IMPORTANT: Change to serial port that is connected to PC
+  Serial.write((uint8_t * )buffer_r, pktSize);
+ }
+
 #endif
