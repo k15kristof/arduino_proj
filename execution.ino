@@ -1,6 +1,6 @@
 
 #include "Arduino.h"
-# define EXECUTE 1
+# define EXECUTE 6
 /* This file decides which file is executed
 /* 1: simple tempometer
  * 2: humidity sensor
@@ -11,6 +11,6 @@
 void loop()
 {
     // MUST BE HERE TO POP UP possibilities
-	Serial.wr
+	Serial.
 }
 */

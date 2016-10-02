@@ -31,7 +31,7 @@ void loop()
  int data4;
 
  //Generating data that will be plotted
- data1 = amplitude * sin(angle);
+ data1 = amplitude * abs(sin(angle));
  data2 = amplitude * cos(angle);
 
  data3 = (amplitude/2) * sin(angle);
