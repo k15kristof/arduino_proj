@@ -1,6 +1,6 @@
 
 #include "Arduino.h"
-# define EXECUTE 6
+# define EXECUTE 1
 /* This file decides which file is executed
 /* 1: simple tempometer
  * 2: humidity sensor
