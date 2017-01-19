@@ -8,9 +8,22 @@
  */
 
 /*
+void setup()
+{
+	Serial.begin(9600);
+	pinMode(7,OUTPUT);
+	pinMode(8,OUTPUT);
+	pinMode(9,OUTPUT);
+}
+
 void loop()
 {
-    // MUST BE HERE TO POP UP possibilities
-	Serial.
+	if (Serial.available() > 0)
+	{
+		// MUST BE HERE TO POP UP possibilities
+	    digitalWrite(7,HIGH);
+		digitalWrite(8,LOW);
+		analogWrite(9,250); // for small fan: min value: 245
+	}
 }
 */

@@ -1,0 +1,34 @@
+Telemetry Viewer File Format v0.1
+
+Grid Settings:
+
+	column count = 8
+	row count = 8
+
+Serial Port Settings:
+
+	port = ttyUSB0
+	baud = 9600
+	packet type = ASCII CSVs
+	sample rate = 10000
+
+1 Data Structure Locations:
+
+	location = 0
+	processor index = 0
+	name = Boti hőfok
+	color = 0xFF0000
+	unit = 
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+1 Charts:
+
+	chart type = Time Domain Chart
+	duration = 100
+	top left x = 0
+	top left y = 0
+	bottom right x = 6
+	bottom right y = 7
+	datasets count = 1
+		dataset location = 0
